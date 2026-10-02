@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: #05080f;
+}
+
+.portal-cursor {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g transform="rotate(-45 16 16)"><rect x="6" y="12" width="16" height="7" rx="1.5" fill="%232b3240" stroke="%23667085" stroke-width="1"/><rect x="20" y="13.5" width="7" height="4" rx="1" fill="%23434c5e" stroke="%23667085" stroke-width="0.8"/><rect x="9" y="18" width="4" height="7" rx="1" fill="%232b3240" stroke="%23667085" stroke-width="1"/><circle cx="14" cy="15.5" r="2.3" fill="%2397ce4c"/></g></svg>') 4 4, auto;
+}
+
+.portal-cursor-pointer {
+  cursor: url("http://localhost:3001/pickle-rick.png") 0 0, pointer;
+}
