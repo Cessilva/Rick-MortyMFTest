@@ -2,10 +2,10 @@
 
 App de microfrontends con Webpack 5 Module Federation que consume la
 [Rick and Morty API](https://rickandmortyapi.com/). Un host (shell) orquesta dos remotes:
-el listado de personajes y el detalle de cada uno.
+el listado de personajes con filtros y el detalle de cada uno con sus episodios.
 
-Lo estoy construyendo de forma incremental, así que el shell ya está en pie y los remotes
-se irán integrando encima.
+Los tres microfrontends ya están integrados: desde el listado se navega al detalle y de
+vuelta, todo bajo el mismo layout del shell.
 
 ## Arquitectura
 
@@ -57,11 +57,34 @@ npm start
 Y abrir [http://localhost:3000](http://localhost:3000). Los remotes se levantan igual desde
 su propia carpeta.
 
+Para verlo funcionando completo hay que levantar los tres (shell + los dos remotes), cada
+uno en su carpeta y su puerto. El shell carga los remotes desde `:3001` y `:3002`, así que
+si alguno no está arriba, esa parte no se monta.
+
 Scripts disponibles en cada MF:
 
 - `npm start` — dev server con hot reload
 - `npm run build` — build de producción
-- `npm test` — pruebas
+- `npm test` — pruebas (Jest + React Testing Library)
+
+## Pruebas
+
+Las pruebas están en `characters`, hechas con Jest y React Testing Library:
+
+```bash
+cd apps/characters
+npm test
+```
+
+Cubren el render de las tarjetas de personaje (datos, enlace al detalle, imagen) y el
+comportamiento de los filtros (buscar por nombre, elegir estado/especie, limpiar filtros).
+Para ver el reporte de cobertura:
+
+```bash
+npm test -- --coverage
+```
+
+![Reporte de cobertura de los componentes de characters](./assets/coverage.png)
 
 ## Docker
 

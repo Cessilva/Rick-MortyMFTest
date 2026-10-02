@@ -1,6 +1,10 @@
+const prefijo = (nivel: string) => `[character-detail] ${nivel}`;
+
 export const log = {
   info: (msg: string, data?: unknown) =>
-    console.info(`[character-detail] ${msg}`, data ?? ""),
+    console.info(prefijo("info"), msg, data ?? ""),
+  warn: (msg: string, data?: unknown) =>
+    console.warn(prefijo("warn"), msg, data ?? ""),
   error: (msg: string, err?: unknown) =>
-    console.error(`[character-detail] ${msg}`, err ?? ""),
+    console.error(prefijo("error"), msg, err ?? ""),
 };
