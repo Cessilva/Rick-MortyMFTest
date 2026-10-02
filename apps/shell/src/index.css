@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.space-bg {
+  background-color: #05080f;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20% 30%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 75% 15%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 50% 60%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 85% 70%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 10% 80%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 35% 90%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 60% 85%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 5% 45%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 45% 20%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 95% 55%, #ffffff, transparent),
+    radial-gradient(2.5px 2.5px at 65% 40%, #e8f6ff, transparent),
+    radial-gradient(2.5px 2.5px at 15% 55%, #e8f6ff, transparent),
+    radial-gradient(2.5px 2.5px at 90% 35%, #e8f6ff, transparent),
+    radial-gradient(2.5px 2.5px at 30% 50%, #e8f6ff, transparent),
+    radial-gradient(2.5px 2.5px at 78% 88%, #e8f6ff, transparent),
+    radial-gradient(3px 3px at 25% 15%, #ffffff, transparent),
+    radial-gradient(3px 3px at 70% 25%, #ffffff, transparent),
+    radial-gradient(3px 3px at 40% 75%, #ffffff, transparent),
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(151, 206, 76, 0.18),
+      transparent 40%
+    ),
+    radial-gradient(ellipse at 50% 0%, #141b2e 0%, #0a0e1a 45%, #05080f 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

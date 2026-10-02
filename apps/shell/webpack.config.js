@@ -5,7 +5,8 @@ const deps = require("./package.json").dependencies;
 
 module.exports = {
   output: {
-    publicPath: "auto",
+    // Para pruebas usamos "/" porque por ahora probamos todo dentro
+    publicPath: "/",
   },
 
   resolve: {
