@@ -1,0 +1,15 @@
+{
+  "name": "rick-and-morty-microfrontends",
+  "version": "1.0.0",
+  "private": true,
+  "description": "App de microfrontends (shell + characters + character-detail) con Webpack Module Federation",
+  "scripts": {
+    "install:all": "npm install --prefix apps/shell && npm install --prefix apps/characters && npm install --prefix apps/character-detail",
+    "sync:theme": "node shared/sync-theme.js",
+    "predev:all": "npm run sync:theme",
+    "dev:all": "concurrently -n shell,characters,detail -c green,cyan,magenta \"npm start --prefix apps/shell\" \"npm start --prefix apps/characters\" \"npm start --prefix apps/character-detail\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
