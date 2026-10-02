@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 const path = require("path");
 const deps = require("./package.json").dependencies;
@@ -73,6 +74,16 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public/index.html"),
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "public"),
+          to: path.resolve(__dirname, "dist"),
+          globOptions: { ignore: ["**/index.html"] },
+          noErrorOnMissing: true,
+        },
+      ],
     }),
   ],
 };

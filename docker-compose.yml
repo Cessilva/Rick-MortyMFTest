@@ -1,0 +1,19 @@
+
+services:
+  shell:
+    build: ./apps/shell
+    ports:
+      - "3000:80"
+    depends_on:
+      - characters
+      - character-detail
+
+  characters:
+    build: ./apps/characters
+    ports:
+      - "3001:80"
+
+  character-detail:
+    build: ./apps/character-detail
+    ports:
+      - "3002:80"
