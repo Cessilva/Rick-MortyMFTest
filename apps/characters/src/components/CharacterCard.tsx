@@ -1,4 +1,6 @@
+import type { MouseEvent } from "react";
 import type { Character, CharacterStatus } from "../types/character";
+import { navegarA } from "../services/navigation";
 
 const statusColor: Record<CharacterStatus, string> = {
   Alive: "bg-green-500 shadow-[0_0_6px] shadow-green-500/70",
@@ -11,8 +13,19 @@ interface Props {
 }
 
 export default function CharacterCard({ character }: Props) {
+  const href = `/character-detail/${character.id}`;
+
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    navegarA(href);
+  };
+
   return (
-    <article className="portal-cursor-pointer group overflow-hidden rounded-lg bg-portal-card shadow-md ring-1 ring-white/10 transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-portal-green/20 hover:ring-portal-green/50">
+    <a
+      href={href}
+      onClick={handleClick}
+      className="portal-cursor-pointer group block overflow-hidden rounded-lg bg-portal-card shadow-md ring-1 ring-white/10 transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-portal-green/20 hover:ring-portal-green/50"
+    >
       <div className="overflow-hidden">
         <img
           src={character.image}
@@ -35,6 +48,6 @@ export default function CharacterCard({ character }: Props) {
 
         <p className="mt-1 text-xs text-white/50">{character.gender}</p>
       </div>
-    </article>
+    </a>
   );
 }

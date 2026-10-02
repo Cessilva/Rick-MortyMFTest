@@ -7,14 +7,3 @@
 *::after {
   box-sizing: border-box;
 }
-
-html,
-body {
-  margin: 0;
-  background-color: #05080f;
-}
-
-#root {
-  min-height: 100%;
-  background-color: transparent;
-}

@@ -8,16 +8,6 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  margin: 0;
-}
-
-#root {
-  min-height: 100%;
-  background-color: transparent;
-}
-
 .portal-cursor-pointer {
   cursor: url("http://localhost:3001/pickle-rick.png") 0 0, pointer;
 }

@@ -4,15 +4,14 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const CharactersApp = lazy(() => import("characters/CharactersApp"));
+const CharacterDetailApp = lazy(
+  () => import("characterDetail/CharacterDetailApp"),
+);
 
-function CharacterDetailPlaceholder() {
+function CharacterDetailRoute() {
   const { id } = useParams();
-  return (
-    <div className="text-center text-white/70">
-      <p className="text-lg">Microfrontend de detalle del personaje {id}.</p>
-      <p className="text-sm text-white/40">(remote: characterDetail @ :3002)</p>
-    </div>
-  );
+  if (!id) return null;
+  return <CharacterDetailApp id={id} />;
 }
 
 function Cargando() {
@@ -31,7 +30,7 @@ export default function App() {
             <Route path="/characters" element={<CharactersApp />} />
             <Route
               path="/character-detail/:id"
-              element={<CharacterDetailPlaceholder />}
+              element={<CharacterDetailRoute />}
             />
           </Routes>
         </Suspense>

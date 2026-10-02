@@ -6,25 +6,25 @@ interface Props {
 
 export default function EpisodeList({ episodes }: Props) {
   return (
-    <div className="w-full min-w-0">
-      <h3 className="mb-3 text-center text-lg font-semibold text-portal-green">
+    <div className="cd-w-full cd-min-w-0">
+      <h3 className="cd-mb-3 cd-text-center cd-text-lg cd-font-semibold cd-text-portal-green">
         Episodios ({episodes.length})
       </h3>
-      <ul className="grid max-h-80 w-full list-none grid-cols-2 gap-2 overflow-y-auto overflow-x-hidden p-0 sm:grid-cols-1 lg:grid-cols-2">
+      <ul className="cd-grid cd-max-h-80 cd-w-full cd-list-none cd-grid-cols-2 cd-gap-2 cd-overflow-y-auto cd-overflow-x-hidden cd-p-0 sm:cd-grid-cols-1 lg:cd-grid-cols-2">
         {episodes.map((ep) => (
           <li
             key={ep.id}
-            className="min-w-0 rounded-md bg-portal-card px-2 py-2 ring-1 ring-white/10"
+            className="cd-min-w-0 cd-rounded-md cd-bg-portal-card cd-px-2 cd-py-2 cd-ring-1 cd-ring-white/10"
           >
-            <div className="flex items-center gap-2">
-              <span className="shrink-0 rounded bg-portal-green/15 px-1.5 py-0.5 text-[11px] font-medium text-portal-green">
+            <div className="cd-flex cd-items-center cd-gap-2">
+              <span className="cd-shrink-0 cd-rounded cd-bg-portal-green/15 cd-px-1.5 cd-py-0.5 cd-text-[11px] cd-font-medium cd-text-portal-green">
                 {ep.episode}
               </span>
-              <span className="min-w-0 flex-1 truncate text-sm text-white">
+              <span className="cd-min-w-0 cd-flex-1 cd-truncate cd-text-sm cd-text-white">
                 {ep.name}
               </span>
             </div>
-            <p className="mt-1 truncate text-[11px] text-white/50">
+            <p className="cd-mt-1 cd-truncate cd-text-[11px] cd-text-white/50">
               {ep.air_date}
             </p>
           </li>
