@@ -5,7 +5,7 @@ const deps = require("./package.json").dependencies;
 
 module.exports = {
   output: {
-    // Para pruebas usamos "/" porque por ahora probamos todo dentro
+    // El host va con "/" por las rutas anidadas; los remotes con "auto".
     publicPath: "/",
   },
 
