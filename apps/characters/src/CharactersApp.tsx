@@ -1,3 +1,4 @@
+import "./index.css";
 import { useCharacters } from "./hooks/useCharacters";
 import { useFilters } from "./hooks/useFilters";
 import CharacterList from "./components/CharacterList";

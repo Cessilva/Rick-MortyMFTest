@@ -1,15 +1,9 @@
+import { Suspense, lazy } from "react";
 import { Routes, Route, Navigate, useParams } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-function CharactersPlaceholder() {
-  return (
-    <div className="text-center text-white/70">
-      <p className="text-lg">Microfrontend de personajes.</p>
-      <p className="text-sm text-white/40">(remote: characters @ :3001)</p>
-    </div>
-  );
-}
+const CharactersApp = lazy(() => import("characters/CharactersApp"));
 
 function CharacterDetailPlaceholder() {
   const { id } = useParams();
@@ -21,20 +15,26 @@ function CharacterDetailPlaceholder() {
   );
 }
 
+function Cargando() {
+  return <p className="py-10 text-center text-white/60">Cargando módulo…</p>;
+}
+
 export default function App() {
   return (
     <div className="space-bg flex min-h-full flex-col">
       <Header />
 
-      <main className="mx-auto flex w-full max-w-6xl flex-1 items-center justify-center px-4 py-10">
-        <Routes>
-          <Route path="/" element={<Navigate to="/characters" replace />} />
-          <Route path="/characters" element={<CharactersPlaceholder />} />
-          <Route
-            path="/character-detail/:id"
-            element={<CharacterDetailPlaceholder />}
-          />
-        </Routes>
+      <main className="w-full flex-1 px-4 pb-6 pt-1">
+        <Suspense fallback={<Cargando />}>
+          <Routes>
+            <Route path="/" element={<Navigate to="/characters" replace />} />
+            <Route path="/characters" element={<CharactersApp />} />
+            <Route
+              path="/character-detail/:id"
+              element={<CharacterDetailPlaceholder />}
+            />
+          </Routes>
+        </Suspense>
       </main>
 
       <Footer />
